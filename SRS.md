@@ -9,9 +9,9 @@
 
 Obsah
 =================
-* 1 [Úvod](#Úvod)
-  * 1.1 [Účel dokumentu](#Účel-dokumentu)
-  * 1.2 [Rozsah systému](#Rozsah-systému)
+* 1 [Úvod](#1-úvod)
+  * 1.1 [Účel dokumentu](#11-účel-dokumentu)
+  * 1.2 [Rozsah systému](#12-rozsah-systému)
   * 1.3 [Definice, zkratky a zkratky](#Definice-zkratky-a-zkratky)
 * 2 [Obecný popis](#Obecný-popis)
   * 2.1 [Perspektiva produktu](#Perspektiva-produktu)
