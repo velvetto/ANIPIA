@@ -18,22 +18,23 @@ function closeMenu() {
 }
 
 //Formular na About
-document.getElementById("contactForm").addEventListener("submit", function(event) {
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", function(event) {
     event.preventDefault();
-
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const message = document.getElementById("message").value;
 
     if (!name || !email || !message) {
-        showToast("Fill in all fields", "warning");
-        return;
+      showToast("Fill in all the fields", "warning");
+      return;
     }
 
     const contactFormData = {
-        name: name,
-        email: email,
-        message: message
+      name: name,
+      email: email,
+      message: message
     };
 
     showToast("Your message has been sent successfully", "success");
@@ -42,18 +43,17 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     document.getElementById("email").value = "";
     document.getElementById("message").value = "";
 
-    // Odeslani dat do backendu pomoci AJAX
     fetch("http://localhost:8080/contact/submit", {
-    method: "POST",
-    headers: {
+      method: "POST",
+      headers: {
         "Content-Type": "application/json"
-    },
-    body: JSON.stringify(contactFormData)
-})
-    .catch(error => {
-        console.error("Error:", error);
+      },
+      body: JSON.stringify(contactFormData)
+    }).catch(error => {
+      console.error("Error:", error);
     });
-});
+  });
+}
 
 // Hlaska pri odeslani formulare
 function showToast(message, type = "success") {
@@ -77,3 +77,23 @@ function showToast(message, type = "success") {
         }, 100); 
     }, 4000);
 }
+
+// Kdyz uzivatel je prihlaseny
+document.addEventListener("DOMContentLoaded", () => {
+    const user = JSON.parse(localStorage.getItem("user")) || JSON.parse(sessionStorage.getItem("user"));
+    const authLink = document.getElementById("auth-link");
+
+    if (user && authLink) {
+        authLink.innerHTML = `
+        <a href="Profile.html" class="nav-link nav-button">My Profile</a>
+        `;
+    }
+
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+
+    if (user && nameInput && emailInput) {
+        nameInput.value = `${user.jmeno || ""} ${user.prijmeni || ""}`.trim();
+        emailInput.value = user.email || "";
+    }
+});
