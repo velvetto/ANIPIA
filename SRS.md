@@ -1,8 +1,10 @@
 # Software Requirements Specification
-## Pro Hotel Anipia
+## Hotel Anipia
 
 **Verze:** 1.0
+
 **Autor:** Yelyzaveta Yefremova
+
 **Datum:** 22.05.2025
 
 Obsah
@@ -108,7 +110,7 @@ Funkčnost REST API lze jednoduše otestovat pomocí nástrojů jako Postman neb
 ---
 
 ## 4. Přílohy  
-- Dokument [Business story.pdf] obsahující scénář použití systému  
+- Dokument Business story.pdf obsahující scénář použití systému  
 - Use Case diagram v PNG formátu  
 - Ukázky UI – screenshoty s přehledem stránek na různých zařízeních
 - Ukázkové příkazy pro `curl` testování API endpointů
