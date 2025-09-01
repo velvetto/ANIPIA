@@ -1,0 +1,665 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 0.06rem;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+}
+
+body {
+    font-size: 1.6rem; 
+    background-image: url("../Photos/background.jpg"); /* cesta k tvému obrázku */
+    background-repeat: repeat;  /* obrázek se bude opakovat */
+    background-size: 120rem 120rem; /* velikost jednotlivé dlaždice */
+    background-position: top left;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    height: 0.3rem;
+    background-color: #333;
+    margin: 1rem 0 1.5rem;
+}
+
+.wrapper-gallery, .wrapper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.header {
+    background-color: #3C552D; 
+    letter-spacing: 0.1rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0; 
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 0.3rem;
+    margin: 0.5rem auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #f7f5f0;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 2rem; 
+}
+
+.nav-link {
+    font-size: 2.2rem; 
+    font-weight: 100;
+    color: #f7f5f0;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #cac8c4;
+}
+
+.nav-logo {
+    font-size: 2.8rem; 
+    font-weight: 500;
+    color: #f7f5f0;
+    cursor: default;
+}
+
+.nav-button {
+    position: relative;
+    display: inline-block;
+    width: 15rem;
+    text-align: center;
+    padding: 0.6rem 0;
+    border-radius: 15px;
+    background-color: #f7f5f0;
+    color: #3C552D;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    z-index: 0;
+    
+}
+
+.nav-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #3c552d21;
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.nav-button:hover::before {
+    left: 0;
+}
+
+.nav-button:hover {
+    color: #2e4223;
+}
+
+
+/*Main sekce */
+.mainPage {
+    cursor: default;
+}
+
+.main-image {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.main-image-wrapper {
+    position: relative;  
+}
+
+.wrapper-gallery, .wrapper {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.main-image-content {
+    padding-top: 10rem;
+    position: relative;
+    padding-bottom: 8rem;
+    color: #333;
+}
+
+.main-image-info {
+    max-width: 50vh;
+    text-align: justify;
+    margin-top: 7rem;
+}
+
+.main-image-title {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 4rem; 
+    line-height: 5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.main-image-subtitle {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.main-image-text {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.main-image-button {
+    width: 60%;
+}
+
+.button {
+    padding: 2rem 4rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #f7f5f0;
+    box-shadow: -20px 20px 30px rgba(0, 0, 0, .15);
+    border-radius: 15px;
+    background-color: #3C552D;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: #2c3f22;
+    transform: translateY(-0.3rem);
+}
+
+.main-image-image {
+    position: absolute;
+    right: -5%;
+    top: 75px;
+    pointer-events: none;
+}
+
+.main-image-image img {
+    display: block;
+    box-sizing: border-box;
+    border: none;
+}
+
+/* Price List sekce */
+.price-list {
+    padding: 5rem 0;
+    margin-top: 30rem;
+}
+
+.price-list-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #3C552D;
+    font-weight: 600;
+}
+
+.price-list-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-top: 5rem;
+}
+
+.price-list-item {
+    background-color: #3c552d21;
+    border-radius: 15px;
+    padding: 5rem 2rem;
+    text-align: center;
+    width: 22%; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+
+.price-list-item:hover {
+    transform: translateY(-15px);
+}
+
+.price-list-item img {
+    width: 12rem;
+    height: 12rem;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+}
+
+.price-list-item h3 {
+    font-size: 1.8rem;
+    color: #3C552D;
+    margin-bottom: 1rem;
+}
+
+.price-list-item .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #547243;
+}
+
+/* Rules sekce */
+.rules-section {
+    padding: 4rem 2rem;
+    background-color: #3C552D;
+    margin-top: 15rem;
+    color: #f7f5f0;
+}
+
+.rules-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
+
+.rules-text {
+    flex: 1;
+}
+
+.rules-title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.rules-list {
+    margin-left: 2rem;
+    font-size: 1.6rem;
+
+    line-height: 2.5rem;
+}
+
+.rules-list li {
+    list-style-type: disc;
+    line-height: 3rem;
+}
+
+.rules-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.rules-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Services sekce */
+.services-section {
+    padding: 15rem 2rem;
+    text-align: center;
+}
+
+.services-title {
+    font-size: 3rem;
+    color: #365E32;
+    margin-bottom: 2rem;
+}
+
+.services-description {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.service-item {
+    background-color: #3c552d21;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.service-item:hover {
+    transform: translateY(-15px);
+}
+
+.service-image {
+    image-rendering: crisp-edges;
+    width: 100%;
+    height: 22vh;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.service-title {
+    font-size: 2rem;
+    color: #3C552D;
+    margin-bottom: 1rem;
+}
+
+.service-description {
+    font-size: 1.4rem;
+    color: #333;
+    padding-bottom: 1.5rem;
+}
+
+/* Footer sekce */
+.footer {
+    background-color: #3C552D;
+    color: #f7f5f0;
+    padding: 3rem 0;
+    text-align: center;
+    cursor: default;
+}
+
+.footer-map {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.footer-map-container{
+    height: 30rem;
+}
+
+.footer-contacts {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #3c552dab;
+    color: #f7f5f0;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+}
+
+.footer-contacts h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.footer-contacts p {
+    margin: 0.5rem 0;
+}
+
+.footer-hours h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-hours {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-links li {
+    margin: 0 2rem;
+}
+
+.footer-links a {
+    color: #f7f5f0;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #90a77b;
+}
+
+.footer-copyright {
+    margin-top: 2rem;
+    font-size: 1.3rem;
+}
+
+iframe {
+    height: 100%;
+    width: 100%;
+}
+
+/* Responsivita pro ruzna zarizeni */
+@media screen and (max-width: 1280px) {
+    .main-image-image {
+        position: relative; 
+        margin-top: 4rem;
+        right: 0; 
+        width: 100%; 
+        justify-items: center;
+        margin-left: 0;
+        margin-right: 0; 
+    }   
+    img {
+        max-width: 100%;
+    }
+    .main-image-info {
+        text-align: center;
+        margin: 0 auto;
+        max-width: 90%; 
+    }
+    .price-list {
+        margin-top: 10rem;
+        padding: 0 2rem;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .navbar {
+        padding: 2rem; 
+    }   
+    .nav-menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .hamburger {
+        display: none;
+    }
+    .nav-item {
+        margin-left: 2rem;
+    }
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .services-section {
+        padding: 5rem 2rem 10rem;
+    }
+    .rules-content {
+        flex-direction: row;
+        gap: 2rem;
+    }
+    .rules-section {
+        margin-top: 5rem;
+        padding: 10rem 2rem;
+    }
+    .rules-text, .rules-image {
+        flex: 1;
+    }
+    .price-list-items {
+        flex-direction: row; 
+        justify-content: space-between;
+        padding: 3rem 0 0;
+    }
+    .price-list-item {
+        width: 47%; 
+    }
+    .price-list {
+        margin-top: 5rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        padding: 2rem; 
+    }
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 1rem;
+        flex-direction: column;
+        background-color: #3C552D;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        z-index: 1;
+        padding-bottom: 2rem;
+    }
+    .nav-menu.active {
+        left: 0;
+    }
+    .nav-item {
+        margin: 2.5rem 0;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        z-index: 2;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .main-image-title {
+        font-size: 3.2rem; 
+        line-height: 4rem;
+    }
+    .main-image-subtitle {
+        font-size: 1.6rem;
+        line-height: 2rem;
+    }
+    .main-image-info {
+        text-align: center;
+        margin: 0 auto;
+        max-width: 90%
+    }
+    .container {
+        overflow: hidden; 
+        width: 100%; 
+    }
+    .main-image-text {
+        font-size: 1.4rem;
+        line-height: 2.2rem;
+    }
+    .main-image-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        padding: 0 2rem;
+        margin: -7rem 0 7rem;
+    }
+    .button {
+        display: block;
+        margin: 0 auto; 
+        text-align: center;
+        width: 80%; 
+        min-width: 20rem;
+    }
+    .price-list-items {
+        flex-direction: column;
+        align-items: center;
+    }
+    .price-list {
+        margin-top: 0;
+    }
+    .price-list-item {
+        width: 100%; 
+    }
+    .rules-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .rules-section {
+        margin-top: 5rem;
+        padding: 5rem 2rem;
+    }
+    .rules-text {
+        margin-bottom: 2rem;
+    }
+    .rules-list {
+        text-align: left;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .service-link:nth-child(n+4) {
+        display: none;
+    }
+    .footer-contacts {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    .footer-links ul {
+        flex-direction: row;
+        align-items: center;
+    }
+    .footer-links li {
+        margin: 1rem;
+    }
+}
