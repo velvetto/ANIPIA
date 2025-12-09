@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let errors = [];
 
+
       if (password.length < 8) {
         errors.push("Password must be at least 8 characters.");
         document.querySelector("#password").classList.add("input-error");
@@ -58,7 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Odeslání dat na backend
       try {
         const response = await fetch("http://localhost:8080/api/zakaznici/signup", {
           method: "POST",

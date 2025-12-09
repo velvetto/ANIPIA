@@ -39,22 +39,138 @@
         </div>
     </header>
 
-    <section class="profile">
-        <button id="logout-button" class="button logout-button"> Logout </button>
+<main class="wrapper">
+    <section class="profile-section">
+        <div class="profile-container">
+            <div class="profile-left">
+                <h2>Welcome back, <span id="user-name">User</span>!</h2>
+                <div id="calendar"></div>
+                <button id="reserve-btn" class="button modal-button" style="margin-top:20px;">Make Reservation</button>
+            </div>
+            <div class="profile-right">
+                <h2>My pets</h2>
+                <div id="pets-list">
+                    <div class="pet-add-card"><span>+</span></div>
+                </div>
+            </div>       
+        </div>
+        <div id="notifications" class="notifications">
+            <h2>Notifications | Reservations</h2>
+            <div id="notifications-list"> </div>
+        </div>
     </section>
+</main>
+    
+<div id="room-reservation-modal" class="modal">
+    <div class="modal-content" style="width: 600px;">
+        <span class="close">&times;</span>
+        <h3 id="reservation-modal-title">Room Reservation</h3>
+        <div id="rooms-list" class="rooms-list"> </div>
+    </div>
+</div>
 
+<div id="pet-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3 id="modal-title" class="modal-title">Add New Pet</h3>
+        <form id="add-pet-form" class="modal-form">
+            <div class="modal-input-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="modal-input-group">
+                <label for="type">Type</label>
+                <select id="type" name="type" required>
+                    <option value="">Select type</option>
+                    <option value="Dog">Dog</option>
+                    <option value="Cat">Cat</option>
+                    <option value="Small Rodent">Small Rodent</option>
+                </select>
+            </div>
+            <div class="modal-input-group">
+                <label for="breed">Breed</label>
+                <input type="text" id="breed" name="breed">
+            </div>
+            <div class="modal-input-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="0">
+            </div>
+            <div class="modal-input-group">
+                <label for="health">Health</label>
+                <input type="text" id="health" name="health">
+            </div>
+            <div class="modal-input-group">
+                <label for="note">Note</label>
+                <textarea id="note" name="note" placeholder="..."></textarea>
+            </div>
+            <button type="submit" class="button modal-button">Add Pet</button>
+        </form>
+    </div>
+</div>
+
+<div id="pet-detail-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="pet-modal-body">
+            <div class="pet-image">
+                <img id="modal-pet-img" src="Photos/default_pet.png" alt="Pet">
+            </div>
+            <div class="pet-info">
+                <p><strong>Name:</strong> <span id="modal-pet-name"></span></p>
+                <p><strong>Type:</strong> <span id="modal-pet-type"></span></p>
+                <p><strong>Breed:</strong> <span id="modal-pet-breed"></span></p>
+                <p><strong>Age:</strong> <span id="modal-pet-age"></span></p>
+                <p><strong>Health:</strong> <span id="modal-pet-health"></span></p>
+                <p><strong>Note:</strong> <span id="modal-pet-note"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="delete-pet-modal" class="modal">
+  <div class="modal-content" style="width:400px; text-align:center;">
+    <span class="close" id="delete-modal-close">&times;</span>
+    <h3 style="color: #333;">Do you really want to delete this pet?</h3>
+    <div style="margin-top: 2rem; display:flex; justify-content:center; gap:1rem;">
+      <button id="delete-confirm-btn" class="modal-button" style="background-color:#6b1d1d;">Yes</button>
+      <button id="delete-cancel-btn" class="modal-button" style="background-color:#888;">No</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+        <div class="footer-map">
+            <div class="footer-map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.278953577312!2d14.424697076920205!3d50.08106391389126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b9492b3a277e1%3A0xeaf4ed444e9dc72d!2zVsOhY2xhdnNrw6kgbsOhbS4gNzk2LzQ0LCAxMTAgMDAgTm92w6kgTcSbc3Rv!5e0!3m2!1sru!2scz!4v1731524861110!5m2!1sru!2scz"
+                style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="footer-contacts">
+                <h3>Contacts</h3>
+                <p>Address: Vaclavske nam. 796/44, Prague</p>
+                <p>Email: hotel.anipia@gmail.com</p>
+                <p>Phone: +420 775 111 645</p>
+            </div>
+        </div>
+        <div class="footer-hours">
+            <h3>Opening hours</h3>
+            <p>Monday - Friday: 8:00 - 20:00</p>
+            <p>Saturday: 10:00 - 16:00</p>
+            <p>Sunday: Closed</p>
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="Prices.html">Prices</a></li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            <p> &copy; 2024 Anipia. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="profile.js"></script>
     <script src="script.js"></script>
-    <script>
-        const logoutBtn = document.getElementById("logout-button");
-        if (logoutBtn) {
-            logoutBtn.addEventListener("click", () => {
-                localStorage.removeItem("user");
-                sessionStorage.removeItem("user");
-                setTimeout(() => {
-                window.location.href = "index.html";
-                }, 500);
-            });
-        }
-    </script>
 </body>
 </html>

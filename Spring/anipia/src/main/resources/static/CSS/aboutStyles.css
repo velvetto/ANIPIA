@@ -1,7 +1,6 @@
 /* About Us sekce */
 .about-us {
     padding: 10rem 2rem;
-    background-color: #f7f5f0;
     text-align: center;
     cursor: default;
 }
@@ -52,7 +51,7 @@
 
 /* Team sekce */
 .our-team {
-    padding: 0 2rem 5rem;
+    padding: 0 2rem 12rem;
     text-align: center;
     cursor: default;
 }
@@ -266,6 +265,3 @@
 .toast.warning {
     background-color: #f1b900;
 }
-
-
-

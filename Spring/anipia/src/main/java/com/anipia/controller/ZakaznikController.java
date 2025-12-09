@@ -30,8 +30,8 @@ public class ZakaznikController {
 
     @PostMapping("/login")
     public LoginResponse login(@RequestBody LoginRequest req) throws Exception {
-        Zakaznik zakaznik = zakaznikService.login(req.getEmail(), req.getHeslo());
-        return new LoginResponse("Přihlášení úspěšné", zakaznik.getJmeno(), zakaznik.getPrijmeni());
-    }
+    Zakaznik zakaznik = zakaznikService.login(req.getEmail(), req.getHeslo());
+    return new LoginResponse("Přihlášení úspěšné", zakaznik.getIdZakaznici(), zakaznik.getJmeno(), zakaznik.getPrijmeni());
+}
 }
 

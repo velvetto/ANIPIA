@@ -30,7 +30,7 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: #3c552d21;
+    background-color: #d8e5c49d;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     overflow: hidden;

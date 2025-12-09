@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 public class ContactForm {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Umozni automaticky vygenerovat ID
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;

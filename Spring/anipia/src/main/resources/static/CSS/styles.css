@@ -15,7 +15,10 @@ html {
 
 body {
     font-size: 1.6rem; 
-    background-color: #f7f5f0;
+    background-image: url("../Photos/background.jpg"); 
+    background-repeat: repeat; 
+    background-size: 120rem 120rem; 
+    background-position: top left;
 }
 
 li {

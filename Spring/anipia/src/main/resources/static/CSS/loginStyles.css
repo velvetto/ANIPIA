@@ -1,5 +1,6 @@
 body {
     background-color: #3c552dce;
+    background-image: none;
 }
 
 .auth-section {
@@ -141,7 +142,6 @@ body {
     text-decoration: underline;
 }
 
-/*  Toast    */
 .toast {
     position: fixed;
     top: 20px;

@@ -22,7 +22,7 @@ public class ZakaznikService {
             throw new Exception("Email již existuje");
         }
 
-        // Hashujeme heslo před uložením
+        // Hash hesla
         zakaznik.setHeslo(passwordEncoder.encode(zakaznik.getHeslo()));
 
         return zakaznikRepository.save(zakaznik);
@@ -35,7 +35,7 @@ public class ZakaznikService {
         }
         Zakaznik zakaznik = opt.get();
 
-        // Porovnání hashovaného hesla
+        // Porovnani hesel
         if (!passwordEncoder.matches(heslo, zakaznik.getHeslo())) {
             throw new Exception("Nesprávné heslo");
         }

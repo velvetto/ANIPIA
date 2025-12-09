@@ -1,9 +1,11 @@
 # HOTEL ANIPIA
 Webová aplikace slouží pro uživatele (zákazníky), které chtějí vytvořit rezervaci pokoje pro svého domácího mazlíčka. 
-Zatím tato aplikace jen umožňuje vyplnit kontaktní formulář na stránce, který se následně:
+Zatím tato aplikace umožňuje vyplnit kontaktní formulář na stránce, který se následně:
 
 - uloží do databáze (H2)
 - odešle jako e-mail prostřednictvím Mailtrap
+
+Taky stránka Login umožňuje registraci nového uživatele a následovně jeho přihlášení do svého profilu, kde pak se může odhlásit.
 
 Celkově projekt je postaven pomocí:
 ### Frontend
@@ -35,13 +37,13 @@ Taky poskytuje přehledné uživatelské rozhraní, ve kterém lze kontrolovat o
 ## Struktura projektu
 ANIPIA/
 ├── data/
-│   └── anipia.mv.db
+│   ├── anipia.mv.db
 │   └── anipia.trace.db
 ├── Documentation/
-│   └── Diagrams/
-│    └── UI/
-│    └── Business story.pdf
-│    └── Product page.png
+│   ├── Diagrams/
+│   ├── UI/
+│   ├── Business story.pdf
+│   └── Product page.png
 ├── Spring/anipia/
 │   └── src/
 │       ├── main/java/com/anipia/
@@ -62,7 +64,7 @@ ANIPIA/
 ## Odeslání formuláře
 
 Pro tenhle proces byl pomocí Visual Paradigm vytvořen "Business Process Model and Notation" a "Use Case Diagram", které ho snadně vizuálně popisují.
-Pro spuštění a nastavení projektu jsou násldedující kroky:
+Pro spuštění a nastavení projektu jsou násldedující kroky: 
 
 ### 1. Uživatelský vstup (Frontend)
 - Uživatel otevře webovou stránku (např. index.html), kde najde kontaktní formulář.
@@ -95,6 +97,34 @@ Pro spuštění a nastavení projektu jsou násldedující kroky:
 - V případě úspěchu zobrazí uživateli zprávu „Message sent successfully!“.
 - V případě chyby zobrazí „Error sending message!“.
 
+## Registrace uživatele
+
+### 1. Uživatelský vstup (Frontend)
+- Uživatel navštíví stránku, kde je umístěn registrační formulář.
+- Vyplní pole: jméno, příjmení, telefon, email, heslo a potvrzení hesla.
+- Po kliknutí na tlačítko „Sign Up“ JS zachytí událost submit z formuláře.
+- Skript provede základní validaci (např. délka hesla, shoda hesel). Pokud něco chybí nebo je špatně, uživatel dostane upozornění.
+- Po úspěšné validaci se pomocí fetch() odešle HTTP POST požadavek na endpoint.
+
+### 2. Přijetí požadavku a zpracování (Backend – Controller)
+- Backend zachytí požadavek v metodě signup() ve třídě ZakaznikController.
+- Pomocí @RequestBody se JSON automaticky převede na RegisterRequest.
+- Z něj se vytvoří nový objekt Zakaznik, který se předá do ZakaznikService.
+
+### 3. Uložení uživatele (Backend – Service a Repository)
+- Provede se validace, zda e-mail už neexistuje.
+- Heslo bude hashované.
+- Nový zákazník se uloží do databáze.
+
+### 4. Odpověď backendu (Controller na Frontend)
+- Pokud je registrace úspěšná, tak se zobrazí zpráva, že všechno proběhlo úspěšně.
+- Pokud e-mail už existuje nebo nastane jiná chyba, vrátí se chybá zpráva.
+
+### 5. Zobrazení výsledku uživateli (Frontend)
+- Frontend přijme odpověď z backendu.
+- Pokud je registrace úspěšná tak zobrazí hlášku „Your registration is done. Please login“ a pak přesměruje uživatele na přihlašovácí stránku.
+- Pokud se registrace nezdaří tak se zobrazí chybová hláška (buď „User already exists“ nebo „Registration failed“).
+
 ## API endpointy
 **1. POST /contact/submit**
 
@@ -116,6 +146,14 @@ Smaže všechny zprávy z databáze podle e-mailu.
 
 Export všech zpráv do PDF souboru.
 
+**6. POST api/zakaznici/signup**
+
+Slouží k vytvoření nového uživatele (zákazníka) v databázi.
+
+**7. POST /api/zakaznici/login**
+
+Slouží k ověření uživatelských údajů při přihlašování. Jestli uživatel existuje, tak ho přihlásí do profilu.
+
 ## Testování API (přes curl - cmd)
 ### Příkaz pro příjmutí dat formuláře a jejích zpracování:
 curl -X POST http://localhost:8080/contact/submit ^ -H "Content-Type: application/json" ^
@@ -127,10 +165,20 @@ curl "http://localhost:8080/contact/ping"
 ### Příkaz pro výpis všech zpráv od určítého uživatele podle e-mailu:
 curl "http://localhost:8080/contact/by-email?email=uzivatel@test"
 
-### Příkaz pro odstranění všech zpržv z databáze podle e-mailu:
+### Příkaz pro odstranění všech zprav z databáze podle e-mailu:
 curl -X DELETE "http://localhost:8080/contact/deleteByEmail/uzivatel@test"
 
 ### Příkaz pro export všech zpráv z databáze do formatu PDF:
 curl -o message_forms.pdf http://localhost:8080/export/pdf
 Nebo v prohlížeči:
 http://localhost:8080/export/pdf
+
+### Příkaz pro registraci uživatele:
+curl -X POST http://localhost:8080/api/zakaznici/signup ^
+-H "Content-Type: application/json" ^
+-d "{\"jmeno\":\"uzivatel\",\"prijmeni\":\"test\",\"telefon\":\"123456789\",\"email\":\"uzivatel@test\",\"heslo\":\"qwerty12\"}"
+
+### Příkaz pro přihlášení uživatele:
+curl -X POST http://localhost:8080/api/zakaznici/login ^
+-H "Content-Type: application/json" ^
+-d "{\"email\":\"uzivatel@test\",\"heslo\":\"qwerty12\"}"

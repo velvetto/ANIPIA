@@ -12,11 +12,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())  // H2 konzole vyžaduje vypnutí CSRF
-            .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.sameOrigin()))  // povolit iframe pro H2 konzoli
+            .csrf(csrf -> csrf.disable()) 
+            .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.sameOrigin()))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/h2-console/**").permitAll() // povolit přístup k h2-console
-                .anyRequest().permitAll() // ostatní také povolit
+                .requestMatchers("/h2-console/**").permitAll()
+                .anyRequest().permitAll() 
             );
 
         return http.build();

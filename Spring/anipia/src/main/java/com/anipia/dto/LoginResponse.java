@@ -7,6 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class LoginResponse {
     private String message;
+    private Long idZakaznici;
     private String jmeno;
     private String prijmeni;
 }

@@ -1,5 +1,5 @@
 # Software Requirements Specification
-## Hotel Anipia
+## Pro Hotel Anipia
 
 **Verze:** 1.0
 
@@ -12,7 +12,7 @@ Obsah
 * 1 [Úvod](#1-úvod)
   * 1.1 [Účel dokumentu](#11-účel-dokumentu)
   * 1.2 [Rozsah systému](#12-rozsah-systému)
-  * 1.3 [Definice, zkratky a zkratky](#13-definice-zkratky-a-zkratky)
+  * 1.3 [Definice, zkratky a pojmy](#13-definice-zkratky-a-pojmy)
 * 2 [Obecný popis](#2-obecný-popis)
   * 2.1 [Perspektiva produktu](#21-perspektiva-produktu)
   * 2.2 [Funkce systému](#22-funkce-systému)
@@ -52,6 +52,7 @@ Systém bude tvořen webovou aplikací, která umožní uživatelům registraci 
 - **JS**: JavaScript je programovací jazyk, který se používá hlavně pro tvorbu interaktivních a dynamických webových stránek a aplikací.
 - **CSS**: Jazyk, který se používá k definování vzhledu a rozložení webových stránek.
 - **HTML**: Je to hypertextový značkovací jazyk, který slouží k definování struktury a obsahu webových stránek.
+- **API** – Application Programming Interface
 
 ---
 
@@ -110,7 +111,7 @@ Funkčnost REST API lze jednoduše otestovat pomocí nástrojů jako Postman neb
 ---
 
 ## 4. Přílohy  
-- Dokument Business story.pdf obsahující scénář použití systému  
+- Dokument [Business story.pdf] obsahující scénář použití systému  
 - Use Case diagram v PNG formátu  
 - Ukázky UI – screenshoty s přehledem stránek na různých zařízeních
-- Ukázkové příkazy pro `curl` testování API endpointů
+- Ukázkové příkazy pro `curl` testování API endpointů.

@@ -1,11 +1,9 @@
 package com.anipia.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "Zakaznici")
@@ -27,7 +25,11 @@ public class Zakaznik {
     private String email;
 
     @Column(nullable = false)
-    private String heslo;  // uložíme hash hesla
+    private String heslo;  
+
+    @OneToMany(mappedBy = "zakaznik", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("zakaznik")
+    private List<Zvire> zvirata;
 
     // Gettery a settery
     public Long getIdZakaznici() { return idZakaznici; }
@@ -47,5 +49,7 @@ public class Zakaznik {
 
     public String getHeslo() { return heslo; }
     public void setHeslo(String heslo) { this.heslo = heslo; }
-}
 
+    public List<Zvire> getZvirata() { return zvirata; }
+    public void setZvirata(List<Zvire> zvirata) { this.zvirata = zvirata; }
+}

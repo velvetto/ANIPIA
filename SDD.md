@@ -144,4 +144,4 @@ Rozšíření funkcí by mohlo zahrnovat také rezervace služeb přes kalendá�
 - Dokument [Business story.pdf] obsahující scénář použití systému  
 - Use Case diagram v PNG formátu  
 - Ukázky UI – screenshoty s přehledem stránek na různých zařízeních
-- Ukázkové příkazy pro `curl` testování API endpointů
+- Ukázkové příkazy pro `curl` testování API endpointů.

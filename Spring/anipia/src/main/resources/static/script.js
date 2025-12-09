@@ -17,7 +17,28 @@ function closeMenu() {
     navMenu.classList.remove("active");
 }
 
-//Formular na About
+// Modal pro mazlicky
+document.addEventListener("DOMContentLoaded", () => {
+    const petModals = document.querySelectorAll(".modal"); 
+    const closeButtons = document.querySelectorAll(".modal .close"); 
+
+    closeButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const modal = btn.closest(".modal");
+            if (modal) modal.style.display = "none";
+        });
+    });
+
+    window.addEventListener("click", (event) => {
+        petModals.forEach(modal => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
+});
+
+// Formular na About
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
   contactForm.addEventListener("submit", function(event) {
@@ -78,17 +99,35 @@ function showToast(message, type = "success") {
     }, 4000);
 }
 
-// Kdyz uzivatel je prihlaseny
+
+// Odhlasovani
 document.addEventListener("DOMContentLoaded", () => {
     const user = JSON.parse(localStorage.getItem("user")) || JSON.parse(sessionStorage.getItem("user"));
     const authLink = document.getElementById("auth-link");
 
     if (user && authLink) {
-        authLink.innerHTML = `
-        <a href="Profile.html" class="nav-link nav-button">My Profile</a>
-        `;
-    }
+        if (window.location.pathname.endsWith("Profile.html")) {
+            authLink.innerHTML = `<a href="#" class="nav-link nav-button" id="logout-btn">Logout</a>`;
 
+            const logoutBtn = document.getElementById("logout-btn");
+            if (logoutBtn) {
+                logoutBtn.addEventListener("click", (event) => {
+                    event.preventDefault();
+
+                    localStorage.removeItem("user");
+                    sessionStorage.removeItem("user");
+
+                    showToast("You have been logged out", "success");
+
+                    setTimeout(() => {
+                        window.location.href = "index.html";
+                    }, 1500);
+                });
+            }
+        } else {
+            authLink.innerHTML = `<a href="Profile.html" class="nav-link nav-button">My Profile</a>`;
+        }
+}
     const nameInput = document.getElementById("name");
     const emailInput = document.getElementById("email");
 
