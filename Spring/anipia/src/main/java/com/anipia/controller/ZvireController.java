@@ -60,12 +60,20 @@ public class ZvireController {
 
             Zvire zvire = optZvire.get();
 
+<<<<<<< HEAD
+=======
+            // Uložíme obrázek do složky (např. /uploads)
+>>>>>>> ad13098284dc6165a63b79bddd17c20d47609d36
             String uploadDir = "uploads/";
             Files.createDirectories(Paths.get(uploadDir));
             String fileName = id + "_" + file.getOriginalFilename();
             Path path = Paths.get(uploadDir + fileName);
             Files.write(path, file.getBytes());
 
+<<<<<<< HEAD
+=======
+            // Nastavíme cestu do DB
+>>>>>>> ad13098284dc6165a63b79bddd17c20d47609d36
             zvire.setImageUrl("/uploads/" + fileName);
             zvireRepository.save(zvire);
 
@@ -89,6 +97,10 @@ public class ZvireController {
     existingZvire.setVek(updatedZvire.getVek());
     existingZvire.setZdravotniStav(updatedZvire.getZdravotniStav());
     existingZvire.setPoznamka(updatedZvire.getPoznamka());
+<<<<<<< HEAD
+=======
+    // imageUrl necháme beze změny (obrázek se nahrává zvlášť)
+>>>>>>> ad13098284dc6165a63b79bddd17c20d47609d36
 
     zvireRepository.save(existingZvire);
     return ResponseEntity.ok(existingZvire);
@@ -114,3 +126,8 @@ public ResponseEntity<?> deleteZvire(@PathVariable Long id) {
 }
 
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> ad13098284dc6165a63b79bddd17c20d47609d36

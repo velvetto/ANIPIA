@@ -1,2 +1,2 @@
-# ANIPIA
-Anipia - hotel pro domácí mazlíčky
+ANIPIA
+Hotel pro domácí mazlíčky

@@ -31,6 +31,11 @@ public class Zakaznik {
     @JsonIgnoreProperties("zakaznik")
     private List<Zvire> zvirata;
 
+    // Volitelně můžeme mít list mazlíčků
+    @OneToMany(mappedBy = "zakaznik", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("zakaznik")
+    private List<Zvire> zvirata;
+
     // Gettery a settery
     public Long getIdZakaznici() { return idZakaznici; }
     public void setIdZakaznici(Long idZakaznici) { this.idZakaznici = idZakaznici; }

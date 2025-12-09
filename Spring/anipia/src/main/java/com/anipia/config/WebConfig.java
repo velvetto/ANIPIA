@@ -31,6 +31,10 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+<<<<<<< HEAD
+=======
+        // Absolutní cesta ke složce uploads
+>>>>>>> ad13098284dc6165a63b79bddd17c20d47609d36
         String uploadPath = Paths.get("uploads").toFile().getAbsolutePath();
 
         registry.addResourceHandler("/uploads/**")

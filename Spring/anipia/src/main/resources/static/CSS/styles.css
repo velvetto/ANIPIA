@@ -15,9 +15,15 @@ html {
 
 body {
     font-size: 1.6rem; 
+<<<<<<< HEAD
     background-image: url("../Photos/background.jpg"); 
     background-repeat: repeat; 
     background-size: 120rem 120rem; 
+=======
+    background-image: url("../Photos/background.jpg"); /* cesta k tvému obrázku */
+    background-repeat: repeat;  /* obrázek se bude opakovat */
+    background-size: 120rem 120rem; /* velikost jednotlivé dlaždice */
+>>>>>>> ad13098284dc6165a63b79bddd17c20d47609d36
     background-position: top left;
 }
 

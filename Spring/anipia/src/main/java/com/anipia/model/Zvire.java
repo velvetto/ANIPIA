@@ -25,7 +25,11 @@ public class Zvire {
     @Column(name = "VEK")
     private Integer vek;
 
+<<<<<<< HEAD
     @Column(name = "ZDRAVOTNI_STAV") 
+=======
+    @Column(name = "ZDRAVOTNI_STAV")   // používáme JEDINÝ správný sloupec
+>>>>>>> ad13098284dc6165a63b79bddd17c20d47609d36
     private String zdravotniStav;
 
     @Column(name = "POZNAMKA")
@@ -36,7 +40,11 @@ public class Zvire {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ZAKAZNIK_ID", nullable = false)
+<<<<<<< HEAD
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+=======
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // přidat
+>>>>>>> ad13098284dc6165a63b79bddd17c20d47609d36
     private Zakaznik zakaznik;
 
     // Gettery a settery

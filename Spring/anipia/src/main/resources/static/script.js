@@ -17,11 +17,20 @@ function closeMenu() {
     navMenu.classList.remove("active");
 }
 
+<<<<<<< HEAD
 // Modal pro mazlicky
 document.addEventListener("DOMContentLoaded", () => {
     const petModals = document.querySelectorAll(".modal"); 
     const closeButtons = document.querySelectorAll(".modal .close"); 
 
+=======
+// --- Modal pro mazlíčky ---
+document.addEventListener("DOMContentLoaded", () => {
+    const petModals = document.querySelectorAll(".modal");   // všechny modály
+    const closeButtons = document.querySelectorAll(".modal .close"); // všechny křížky
+
+    // Kliknutí na křížek
+>>>>>>> ad13098284dc6165a63b79bddd17c20d47609d36
     closeButtons.forEach(btn => {
         btn.addEventListener("click", () => {
             const modal = btn.closest(".modal");
@@ -29,6 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+<<<<<<< HEAD
+=======
+    // Kliknutí mimo obsah zavře modal
+>>>>>>> ad13098284dc6165a63b79bddd17c20d47609d36
     window.addEventListener("click", (event) => {
         petModals.forEach(modal => {
             if (event.target === modal) {
@@ -38,7 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+<<<<<<< HEAD
 // Formular na About
+=======
+//Formular na About
+>>>>>>> ad13098284dc6165a63b79bddd17c20d47609d36
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
   contactForm.addEventListener("submit", function(event) {
@@ -136,3 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
         emailInput.value = user.email || "";
     }
 });
+
+
+
+
